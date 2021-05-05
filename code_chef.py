@@ -37,8 +37,10 @@ browser.find_element_by_id("edit-submit").click()
 #Enter URL of Problem
 test = browser.get("https://www.codechef.com/submit/TEST")
 
-browser.find_element_by_id("edit-submit").click()
+#Switch to non-ide mode
+browser.find_element_by_class_name("form-submit").click()
 
+#Uncheck Toggle editor box
 browser.find_element_by_id("edit_area_toggle_checkbox_edit-program").click()
 
 #Reading input file
@@ -47,11 +49,11 @@ with open("solution.cpp",'r') as f:
 
 codeElement = browser.find_element_by_id("edit-program")
 
-#Passing input file/code to body of submission tab
+#Passing input file/code to body of code tab
 codeElement.send_keys(code)
 
-#Choosing preferred language (C++)
+#Choosing preferred language (C++ chosen here)
 codeLanguage = browser.find_element_by_xpath('//*[@id="edit-language"]/option[1]').click()
 
 # Submit Solution
-browser.find_element_by_id("edit-submit").click()
+browser.find_element_by_id("edit-submit-1").click()
